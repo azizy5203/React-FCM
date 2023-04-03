@@ -52,8 +52,21 @@ console.log("sw");
 // importScripts('/__/firebase/9.2.0/firebase-messaging-compat.js');
 // importScripts('/__/firebase/init.js');
 
-importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js');
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js"
+);
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js"
+);
+
+// window.importScripts(
+//   "https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js"
+// );
+// window.importScripts(
+//   "https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js"
+// );
+
+// window.importScripts
 /**
  * Here is is the code snippet to initialize Firebase Messaging in the Service
  * Worker when your app is not hosted on Firebase Hosting.
@@ -72,34 +85,34 @@ importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compa
  // messages.
  **/
 firebase.initializeApp({
-    apiKey: "AIzaSyDa5EOVViSnkuWksX8vbaLppudmbNNHcNk",
-    authDomain: "fir-23024.firebaseapp.com",
-    databaseURL:
+  apiKey: "AIzaSyDa5EOVViSnkuWksX8vbaLppudmbNNHcNk",
+  authDomain: "fir-23024.firebaseapp.com",
+  databaseURL:
     "https://fir-23024-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "fir-23024",
-    storageBucket: "fir-23024.appspot.com",
-    messagingSenderId: "249974542444",
-    appId: "1:249974542444:web:a0fa84447ee465774bc849",
+  projectId: "fir-23024",
+  storageBucket: "fir-23024.appspot.com",
+  messagingSenderId: "249974542444",
+  appId: "1:249974542444:web:a0fa84447ee465774bc849",
 });
 const messaging = firebase.messaging();
-
 
 // If you would like to customize notifications that are received in the
 // background (Web app is closed or not in browser focus) then you should
 // implement this optional method.
-// Keep in mind that FCM will still show notification messages automatically 
+// Keep in mind that FCM will still show notification messages automatically
 // and you should use data messages for custom notifications.
-// For more info see: 
+// For more info see:
 // https://firebase.google.com/docs/cloud-messaging/concept-options
-messaging.onBackgroundMessage(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+messaging.onBackgroundMessage(function (payload) {
+  console.log(
+    "[firebase-messaging-sw.js] Received background message ",
+    payload
+  );
   // Customize notification here
-  const notificationTitle = 'Background Message Title';
+  const notificationTitle = "Background Message Title";
   const notificationOptions = {
-    body: 'Background Message body.',
+    body: "Background Message body.",
     // icon: '/firebase-logo.png'
   };
-
-  self.registration.showNotification(notificationTitle,
-    notificationOptions);
+  registration.showNotification(notificationTitle, notificationOptions);
 });
