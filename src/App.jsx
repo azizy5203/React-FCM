@@ -4,6 +4,8 @@ import "./App.css";
 import reactLogo from "./assets/react.svg";
 import {firebaseApp} from "./initFirebase";
 import viteLogo from "/vite.svg";
+
+
 function App() {
   async function requestPermission() {
     console.log("Requesting permission...");
